@@ -4,13 +4,15 @@
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/jarvis"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/jarvis"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -23,11 +25,20 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".MySMSBroadCastReceiver" >
-            <intent-filter android:priority="1000" >
+        <receiver
+            android:name=".trigger.receiver.SMSBroadCastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.READ_SMS">
+            <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".trigger.handler.SmsTriggerHandler" />
+        <service android:name=".trigger.receiver.LocationReceiver" />
+
+        <activity android:name=".activities.SmsHandlerActivity" />
 
     </application>
 
