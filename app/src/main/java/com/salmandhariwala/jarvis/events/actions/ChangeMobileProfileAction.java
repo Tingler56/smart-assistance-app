@@ -1,4 +1,4 @@
-package com.salmandhariwala.jarvis.trigger.handler;
+package com.salmandhariwala.jarvis.events.actions;
 
 import android.app.IntentService;
 import android.content.Context;
@@ -8,34 +8,35 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 /**
- * Created by salmandhariwala on 04/01/18.
+ * Created by salmandhariwala on 27/01/18.
  */
 
-public class SmsTriggerHandler extends IntentService {
+public class ChangeMobileProfileAction extends IntentService {
 
-    String tag = SmsTriggerHandler.class.getSimpleName();
+    String tag = ChangeMobileProfileAction.class.getSimpleName();
 
-    public SmsTriggerHandler() {
-        super(SmsTriggerHandler.class.getSimpleName());
+    public ChangeMobileProfileAction() {
+        super(ChangeMobileProfileAction.class.getSimpleName());
     }
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
 
-        Log.d(tag, "sms service started!!!!!!!");
+
+        boolean isSilent = intent.getBooleanExtra("isSilent", false);
 
         AudioManager am;
         am = (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
 
-        String sms = intent.getStringExtra("sms");
 
-        if(sms.contains("jarvis silent")){
+        if (isSilent) {
             am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
             Log.d(tag, "profile set to silent!");
-        }else if(sms.contains("jarvis normal")){
+        } else {
             am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             Log.d(tag, "profile set to normal!");
         }
+
 
     }
 }

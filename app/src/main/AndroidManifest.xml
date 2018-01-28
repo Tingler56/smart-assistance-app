@@ -3,10 +3,12 @@
     package="com.salmandhariwala.jarvis">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,7 @@
         android:roundIcon="@drawable/jarvis"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -25,8 +28,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.CreateEventActivity">
+
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
         <receiver
-            android:name=".trigger.receiver.SMSBroadCastReceiver"
+            android:name=".events.trigger.SMSTrigger"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.READ_SMS">
@@ -35,10 +46,17 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".trigger.handler.SmsTriggerHandler" />
-        <service android:name=".trigger.receiver.LocationReceiver" />
+        <receiver android:name=".events.trigger.TimeTrigger"></receiver>
 
-        <activity android:name=".activities.SmsHandlerActivity" />
+        <service android:name=".events.handler.SmsTriggerHandler" />
+        <service android:name=".events.handler.TimeTriggerHandler" />
+        <service android:name=".events.handler.LocationTriggerHandler" />
+        <service android:name=".events.trigger.LocationTrigger"/>
+
+        <service android:name=".events.actions.TextToSpeechAction"/>
+        <service android:name=".events.actions.ChangeMobileProfileAction"/>
+        <service android:name=".events.actions.SmsSendAction"/>
+
 
     </application>
 

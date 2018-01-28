@@ -1,15 +1,14 @@
-package com.salmandhariwala.jarvis.trigger.receiver;
+package com.salmandhariwala.jarvis.events.trigger;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
-import android.util.Log;
 
-import com.salmandhariwala.jarvis.trigger.handler.SmsTriggerHandler;
+import com.salmandhariwala.jarvis.events.handler.SmsTriggerHandler;
 
-public class SMSBroadCastReceiver extends BroadcastReceiver {
+public class SMSTrigger extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -44,7 +43,7 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
 
     private void handleSMS(Context context, String message) {
 
-        Log.d("jarvis_sms_hanler", message);
+//        Log.d("jarvis_sms_hanler", message);
 
         Intent c = new Intent(context, SmsTriggerHandler.class);
         c.putExtra("sms", message);
