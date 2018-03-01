@@ -9,15 +9,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <LinearLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="10dp"
+                android:layout_margin="20px"
+                card_view:cardBackgroundColor="@color/cast_libraries_material_featurehighlight_outer_highlight_default_color">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Event Create wizard!" />
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter event name" />
+                        android:text="" />
 
 
                 </LinearLayout>
@@ -48,9 +80,13 @@
 
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px"
+                card_view:cardBackgroundColor="@color/wallet_holo_blue_light">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -73,9 +109,12 @@
 
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,13 +128,20 @@
                         android:layout_height="wrap_content"
                         android:text="Location Trigger Enabled" />
 
+                    <Button
+                        android:id="@+id/maps_open"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Open map!" />
+
+
                     <EditText
                         android:id="@+id/event_lat_lng_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="19.134411,72.867168" />
+                        android:hint="19.134411,72.867168" />
 
 
                 </LinearLayout>
@@ -103,9 +149,12 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -125,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Enter action text" />
+                        android:hint="Enter action text" />
 
 
                 </LinearLayout>
@@ -134,9 +183,12 @@
 
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,13 +202,49 @@
                         android:layout_height="wrap_content"
                         android:text="Time Trigger Enabled" />
 
+
+                    <EditText
+                        android:id="@+id/in_date"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true" />
+
+                    <Button
+                        android:id="@+id/btn_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/in_date"
+                        android:layout_toEndOf="@+id/in_date"
+                        android:layout_toRightOf="@+id/in_date"
+                        android:text="SELECT DATE" />
+
+                    <EditText
+                        android:id="@+id/in_time"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/in_date" />
+
+                    <Button
+                        android:id="@+id/btn_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/btn_date"
+                        android:layout_alignStart="@+id/btn_date"
+                        android:layout_below="@+id/btn_date"
+                        android:text="SELECT TIME" />
+
+
                     <EditText
                         android:id="@+id/time_trigger_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="yyyy/MM/dd HH:mm" />
+                        android:hint="yyyy/MM/dd HH:mm" />
 
 
                 </LinearLayout>
@@ -164,9 +252,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px"
+                card_view:cardBackgroundColor="@color/wallet_holo_blue_light"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -180,7 +273,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="Events" />
+                        android:text="Events"
+                        />
 
                 </LinearLayout>
 
@@ -188,9 +282,12 @@
 
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -216,9 +313,12 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -238,7 +338,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter phone number" />
+                        android:hint="Enter phone number" />
 
                     <EditText
                         android:id="@+id/sms_message_event_edittext"
@@ -246,7 +346,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter message" />
+                        android:hint="Enter message" />
 
 
                 </LinearLayout>
@@ -254,9 +354,12 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_width="fill_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:elevation="100dp">
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -276,18 +379,32 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter text to voice message" />
+                        android:hint="Enter text to voice message" />
 
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
 
-            <Button
-                android:id="@+id/submit_event"
-                android:layout_width="match_parent"
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit Event!" />
+                android:layout_gravity="center"
+                android:elevation="100dp"
+                card_view:cardCornerRadius="4dp"
+                android:layout_margin="20px"
+                card_view:cardBackgroundColor="@color/cardview_dark_background">
+
+
+                <Button
+                    android:id="@+id/submit_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Submit Event!" />
+
+            </android.support.v7.widget.CardView>
+
+
 
         </LinearLayout>
 

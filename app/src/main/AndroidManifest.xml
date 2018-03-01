@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBlwUlUq85LYD526n2ohG4jX7lfincpvFg"/>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

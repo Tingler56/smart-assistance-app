@@ -48,8 +48,10 @@ public class HandleUtil {
 
         }
 
+        event.setEventEnabled(false);
+        sampleDatabase.daoAccess().updateRecord(event);
 
-        sampleDatabase.daoAccess().deleteRecord(event);
+//        sampleDatabase.daoAccess().deleteRecord(event);
 
     }
 

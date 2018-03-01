@@ -32,8 +32,24 @@ public class ChangeMobileProfileAction extends IntentService {
         if (isSilent) {
             am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
             Log.d(tag, "profile set to silent!");
+
+            am.setStreamVolume(
+                    AudioManager.STREAM_RING,
+                    0,
+                    AudioManager.FLAG_SHOW_UI
+            );
+
         } else {
             am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            // Get the ringer maximum volume
+            int max_volume_level = am.getStreamMaxVolume(AudioManager.STREAM_RING);
+
+            am.setStreamVolume(
+                    AudioManager.STREAM_RING,
+                    max_volume_level,
+                    AudioManager.FLAG_SHOW_UI
+            );
+
             Log.d(tag, "profile set to normal!");
         }
 

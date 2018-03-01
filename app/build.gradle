@@ -5,11 +5,12 @@ android {
     defaultConfig {
         applicationId "com.salmandhariwala.jarvis"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary= true
+        multiDexEnabled true
     }
     buildTypes {
         release {
